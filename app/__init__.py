@@ -14,6 +14,10 @@ def create_app(test_config=None):
 
     # Debug: Print environment variables
     # print(os.getenv("FIREBASE_SERVICE_ACCOUNT_KEY"))
+    # print(os.getenv("FLASK_SECRET_KEY"))
+
+    # Set the secret key
+    app.secret_key = os.getenv("FLASK_SECRET_KEY")
     
     # Initialize Firebase app
     service_account_key_json = os.getenv("FIREBASE_SERVICE_ACCOUNT_KEY")

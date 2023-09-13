@@ -33,7 +33,7 @@ def create_app(test_config=None):
     CORS(app)
     
     # Register Blueprints here
-    from .routes import auth_bp
+    from .auth_routes import auth_bp
     app.register_blueprint(auth_bp)
     
     return app

@@ -33,8 +33,8 @@ def create_app(test_config=None):
     CORS(app, resources={r"*": {"origins": "http://127.0.0.1:5000"}})
 
     # Register Blueprints here
-    from .auth_routes import auth_bp
-    from .gnome_routes import gnome_bp
+    from .routes.auth_routes import auth_bp
+    from .routes.gnome_routes import gnome_bp
     app.register_blueprint(auth_bp)
     app.register_blueprint(gnome_bp)
 

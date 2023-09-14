@@ -17,10 +17,10 @@ def create_app(test_config=None):
     # print(os.getenv("FLASK_SECRET_KEY"))
 
     # Set the secret key
-    app.secret_key = os.getenv("FLASK_SECRET_KEY")
+    app.secret_key = os.environ.get("FLASK_SECRET_KEY")
 
     # Initialize Firebase app
-    service_account_key_json = os.getenv("FIREBASE_SERVICE_ACCOUNT_KEY")
+    service_account_key_json = os.environ.get("FIREBASE_SERVICE_ACCOUNT_KEY")
     if not service_account_key_json:
         raise ValueError("FIREBASE_SERVICE_ACCOUNT_KEY not found in .env file")
     try:

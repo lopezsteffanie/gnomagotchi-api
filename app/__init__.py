@@ -8,7 +8,7 @@ from flask_cors import CORS
 
 def create_app(test_config=None):
     app = Flask(__name__)
-    
+
     # Load environment variables
     load_dotenv()
 
@@ -18,7 +18,7 @@ def create_app(test_config=None):
 
     # Set the secret key
     app.secret_key = os.getenv("FLASK_SECRET_KEY")
-    
+
     # Initialize Firebase app
     service_account_key_json = os.getenv("FIREBASE_SERVICE_ACCOUNT_KEY")
     if not service_account_key_json:
@@ -27,13 +27,15 @@ def create_app(test_config=None):
         cred = credentials.Certificate(json.loads(service_account_key_json))
         firebase_admin.initialize_app(cred)
     except json.JSONDecodeError as e:
-        raise ValueError("Invalid JSON in FIREBASE_SERVICE_ACCOUNT_KEY: " + str(e))
+        raise ValueError(f"Invalid JSON in FIREBASE_SERVICE_ACCOUNT_KEY: {str(e)}") from e
 
     # Enable CORS for all routes
-    CORS(app)
-    
+    CORS(app, resources={r"*": {"origins": "http://127.0.0.1:5000"}})
+
     # Register Blueprints here
     from .auth_routes import auth_bp
+    from .gnome_routes import gnome_bp
     app.register_blueprint(auth_bp)
-    
+    app.register_blueprint(gnome_bp)
+
     return app

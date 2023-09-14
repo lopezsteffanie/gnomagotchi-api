@@ -1,0 +1,572 @@
+{
+  "friendly": {
+    "stats": {
+      "hunger": 60,
+      "thirst": 60,
+      "energy": 70,
+      "hygiene": 60,
+      "happiness": 80,
+      "exercise": 50,
+      "mental_stimulation": 80,
+      "affection": 70,
+      "environment": 60,
+      "recreation": 60
+    },
+    "neg_tick_rates": {
+      "hunger": -1.5,
+      "thirst": -1.5,
+      "energy": -2,
+      "hygiene": -1,
+      "happiness": -1.5,
+      "exercise": -1,
+      "mental_stimulation": -1.5,
+      "affection": -1.5,
+      "environment": -1,
+      "recreation": -1.5
+    },
+    "pos_tick_rates": {
+      "hunger": 0.6,
+      "thirst": 0.6,
+      "energy": 0.6,
+      "hygiene": 0.4,
+      "happiness": 1.0,
+      "exercise": 0.4,
+      "mental_stimulation": 0.8,
+      "affection": 0.7,
+      "environment": 0.4,
+      "recreation": 0.5
+    }
+  },
+  "grumpy": {
+    "stats": {
+      "hunger": 80,
+      "thirst": 80,
+      "energy": 60,
+      "hygiene": 70,
+      "happiness": 50,
+      "exercise": 60,
+      "mental_stimulation": 70,
+      "affection": 50,
+      "environment": 70,
+      "recreation": 60
+    },
+    "neg_tick_rates": {
+      "hunger": -1.5,
+      "thirst": -1.5,
+      "energy": -2,
+      "hygiene": -0.5,
+      "happiness": -1.5,
+      "exercise": -1,
+      "mental_stimulation": -1.5,
+      "affection": -1.5,
+      "environment": -1,
+      "recreation": -1
+    },
+    "pos_tick_rates": {
+      "hunger": 0.8,
+      "thirst": 0.8,
+      "energy": 0.4,
+      "hygiene": 1.0,
+      "happiness": 0.4,
+      "exercise": 0.4,
+      "mental_stimulation": 0.6,
+      "affection": 0.4,
+      "environment": 1.0,
+      "recreation": 0.2
+    }
+  },
+  "adventurous": {
+    "stats": {
+      "hunger": 60,
+      "thirst": 60,
+      "energy": 70,
+      "hygiene": 60,
+      "happiness": 70,
+      "exercise": 70,
+      "mental_stimulation": 70,
+      "affection": 60,
+      "environment": 70,
+      "recreation": 60
+    },
+    "neg_tick_rates": {
+      "hunger": -1.5,
+      "thirst": -1.5,
+      "energy": -2,
+      "hygiene": -1,
+      "happiness": -1.5,
+      "exercise": -1,
+      "mental_stimulation": -1.5,
+      "affection": -1,
+      "environment": -1,
+      "recreation": -1
+    },
+    "pos_tick_rates": {
+      "hunger": 0.4,
+      "thirst": 0.4,
+      "energy": 0.8,
+      "hygiene": 0.3,
+      "happiness": 0.6,
+      "exercise": 0.9,
+      "mental_stimulation": 0.7,
+      "affection": 0.2,
+      "environment": 0.7,
+      "recreation": 1.0
+    }
+  },
+  "bookworm": {
+    "stats": {
+      "hunger": 70,
+      "thirst": 70,
+      "energy": 50,
+      "hygiene": 60,
+      "happiness": 70,
+      "exercise": 60,
+      "mental_stimulation": 70,
+      "affection": 70,
+      "environment": 70,
+      "recreation": 60
+    },
+    "neg_tick_rates": {
+      "hunger": -1.5,
+      "thirst": -1.5,
+      "energy": -2,
+      "hygiene": -0.5,
+      "happiness": -1,
+      "exercise": -0.5,
+      "mental_stimulation": -2.5,
+      "affection": -1,
+      "environment": -1,
+      "recreation": -1.5
+    },
+    "pos_tick_rates": {
+      "hunger": 0.6,
+      "thirst": 0.6,
+      "energy": 0.4,
+      "hygiene": 0.2,
+      "happiness": 0.8,
+      "exercise": 0.4,
+      "mental_stimulation": 1.0,
+      "affection": 0.6,
+      "environment": 0.6,
+      "recreation": 0.8
+    }
+  },
+  "shy": {
+    "stats": {
+      "hunger": 60,
+      "thirst": 60,
+      "energy": 70,
+      "hygiene": 70,
+      "happiness": 60,
+      "exercise": 60,
+      "mental_stimulation": 70,
+      "affection": 70,
+      "environment": 70,
+      "recreation": 60
+    },
+    "neg_tick_rates": {
+      "hunger": -1.5,
+      "thirst": -1.5,
+      "energy": -2,
+      "hygiene": -0.5,
+      "happiness": -1.5,
+      "exercise": -0.5,
+      "mental_stimulation": -1.5,
+      "affection": -1,
+      "environment": -2,
+      "recreation": -1
+    },
+    "pos_tick_rates": {
+      "hunger": 0.5,
+      "thirst": 0.5,
+      "energy": 0.2,
+      "hygiene": 1.0,
+      "happiness": 0.6,
+      "exercise": 0.4,
+      "mental_stimulation": 0.8,
+      "affection": 0.8,
+      "environment": 0.8,
+      "recreation": 0.4
+    }
+  },
+  "funny": {
+    "stats": {
+      "hunger": 70,
+      "thirst": 70,
+      "energy": 70,
+      "hygiene": 60,
+      "happiness": 70,
+      "exercise": 60,
+      "mental_stimulation": 70,
+      "affection": 50,
+      "environment": 70,
+      "recreation": 60
+    },
+    "neg_tick_rates": {
+      "hunger": -1.5,
+      "thirst": -1.5,
+      "energy": -2,
+      "hygiene": -1,
+      "happiness": -1.5,
+      "exercise": -0.5,
+      "mental_stimulation": -1.5,
+      "affection": -1.5,
+      "environment": -1,
+      "recreation": -1
+    },
+    "pos_tick_rates": {
+      "hunger": 0.4,
+      "thirst": 0.4,
+      "energy": 0.7,
+      "hygiene": 0.6,
+      "happiness": 1.0,
+      "exercise": 0.6,
+      "mental_stimulation": 0.6,
+      "affection": 0.5,
+      "environment": 0.6,
+      "recreation": 0.6
+    }
+  },
+  "mysterious": {
+    "stats": {
+      "hunger": 60,
+      "thirst": 60,
+      "energy": 70,
+      "hygiene": 60,
+      "happiness": 70,
+      "exercise": 70,
+      "mental_stimulation": 70,
+      "affection": 60,
+      "environment": 70,
+      "recreation": 60
+    },
+    "neg_tick_rates": {
+      "hunger": -1.5,
+      "thirst": -1.5,
+      "energy": -2,
+      "hygiene": -0.5,
+      "happiness": -1,
+      "exercise": -1,
+      "mental_stimulation": -2,
+      "affection": -1.5,
+      "environment": -1,
+      "recreation": -1
+    },
+    "pos_tick_rates": {
+      "hunger": 0.5,
+      "thirst": 0.5,
+      "energy": 0.6,
+      "hygiene": 0.6,
+      "happiness": 0.6,
+      "exercise": 0.6,
+      "mental_stimulation": 1.0,
+      "affection": 0.5,
+      "environment": 0.7,
+      "recreation": 0.6
+    }
+  },
+  "nature-loving": {
+    "stats": {
+      "hunger": 70,
+      "thirst": 70,
+      "energy": 50,
+      "hygiene": 60,
+      "happiness": 70,
+      "exercise": 70,
+      "mental_stimulation": 70,
+      "affection": 50,
+      "environment": 70,
+      "recreation": 70
+    },
+    "neg_tick_rates": {
+      "hunger": -1.5,
+      "thirst": -1.5,
+      "energy": -2,
+      "hygiene": -0.5,
+      "happiness": -1,
+      "exercise": -1,
+      "mental_stimulation": -1,
+      "affection": -1.5,
+      "environment": -2,
+      "recreation": -1
+    },
+    "pos_tick_rates": {
+      "hunger": 0.5,
+      "thirst": 0.5,
+      "energy": 0.5,
+      "hygiene": 0.6,
+      "happiness": 0.4,
+      "exercise": 0.6,
+      "mental_stimulation": 0.8,
+      "affection": 0.6,
+      "environment": 1.0,
+      "recreation": 0.5
+    }
+  },
+  "creative": {
+    "stats": {
+      "hunger": 60,
+      "thirst": 60,
+      "energy": 70,
+      "hygiene": 60,
+      "happiness": 70,
+      "exercise": 70,
+      "mental_stimulation": 70,
+      "affection": 60,
+      "environment": 70,
+      "recreation": 60
+    },
+    "neg_tick_rates": {
+      "hunger": -1.5,
+      "thirst": -1.5,
+      "energy": -2,
+      "hygiene": -0.5,
+      "happiness": -1,
+      "exercise": -1,
+      "mental_stimulation": -1.5,
+      "affection": -1,
+      "environment": -1.5,
+      "recreation": -1.5
+    },
+    "pos_tick_rates": {
+      "hunger": 0.6,
+      "thirst": 0.6,
+      "energy": 0.4,
+      "hygiene": 0.5,
+      "happiness": 0.6,
+      "exercise": 0.4,
+      "mental_stimulation": 1.0,
+      "affection": 0.4,
+      "environment": 0.7,
+      "recreation": 0.8
+    }
+  },
+  "loyal": {
+    "stats": {
+      "hunger": 70,
+      "thirst": 70,
+      "energy": 50,
+      "hygiene": 60,
+      "happiness": 70,
+      "exercise": 70,
+      "mental_stimulation": 60,
+      "affection": 80,
+      "environment": 60,
+      "recreation": 60
+    },
+    "neg_tick_rates": {
+      "hunger": -1.5,
+      "thirst": -1.5,
+      "energy": -2,
+      "hygiene": -0.5,
+      "happiness": -1,
+      "exercise": -1,
+      "mental_stimulation": -1,
+      "affection": -1.5,
+      "environment": -1.5,
+      "recreation": -1.5
+    },
+    "pos_tick_rates": {
+      "hunger": 0.5,
+      "thirst": 0.5,
+      "energy": 0.5,
+      "hygiene": 0.6,
+      "happiness": 0.8,
+      "exercise": 0.4,
+      "mental_stimulation": 0.6,
+      "affection": 1.0,
+      "environment": 0.7,
+      "recreation": 0.4
+    }
+  },
+  "curious": {
+    "stats": {
+      "hunger": 60,
+      "thirst": 60,
+      "energy": 70,
+      "hygiene": 60,
+      "happiness": 70,
+      "exercise": 70,
+      "mental_stimulation": 70,
+      "affection": 60,
+      "environment": 60,
+      "recreation": 70
+    },
+    "neg_tick_rates": {
+      "hunger": -1.5,
+      "thirst": -1.5,
+      "energy": -2,
+      "hygiene": -0.5,
+      "happiness": -1,
+      "exercise": -1,
+      "mental_stimulation": -2,
+      "affection": -1.5,
+      "environment": -1,
+      "recreation": -1
+    },
+    "pos_tick_rates": {
+      "hunger": 0.6,
+      "thirst": 0.6,
+      "energy": 0.6,
+      "hygiene": 0.2,
+      "happiness": 0.6,
+      "exercise": 0.4,
+      "mental_stimulation": 1.0,
+      "affection": 0.4,
+      "environment": 0.8,
+      "recreation": 0.8
+    }
+  },
+  "stubborn": {
+    "stats": {
+      "hunger": 70,
+      "thirst": 70,
+      "energy": 60,
+      "hygiene": 60,
+      "happiness": 70,
+      "exercise": 60,
+      "mental_stimulation": 70,
+      "affection": 60,
+      "environment": 70,
+      "recreation": 60
+    },
+    "neg_tick_rates": {
+      "hunger": -1.5,
+      "thirst": -1.5,
+      "energy": -2,
+      "hygiene": -1,
+      "happiness": -1,
+      "exercise": -0.5,
+      "mental_stimulation": -1.5,
+      "affection": -1,
+      "environment": -2,
+      "recreation": -1
+    },
+    "pos_tick_rates": {
+      "hunger": 0.8,
+      "thirst": 0.8,
+      "energy": 0.6,
+      "hygiene": 0.8,
+      "happiness": 0.6,
+      "exercise": 0.2,
+      "mental_stimulation": 0.4,
+      "affection": 0.2,
+      "environment": 0.4,
+      "recreation": 0.4
+    }
+  },
+  "wise": {
+    "stats": {
+      "hunger": 60,
+      "thirst": 60,
+      "energy": 70,
+      "hygiene": 60,
+      "happiness": 80,
+      "exercise": 50,
+      "mental_stimulation": 80,
+      "affection": 70,
+      "environment": 60,
+      "recreation": 60
+    },
+    "neg_tick_rates": {
+      "hunger": -1.5,
+      "thirst": -1.5,
+      "energy": -2,
+      "hygiene": -1,
+      "happiness": -1.5,
+      "exercise": -1,
+      "mental_stimulation": -1.5,
+      "affection": -1,
+      "environment": -1,
+      "recreation": -1
+    },
+    "pos_tick_rates": {
+      "hunger": 0.5,
+      "thirst": 0.5,
+      "energy": 0.3,
+      "hygiene": 0.7,
+      "happiness": 0.6,
+      "exercise": 0.5,
+      "mental_stimulation": 1.0,
+      "affection": 0.6,
+      "environment": 0.5,
+      "recreation": 0.8
+    }
+  },
+  "helpful": {
+    "stats": {
+      "hunger": 70,
+      "thirst": 70,
+      "energy": 60,
+      "hygiene": 60,
+      "happiness": 70,
+      "exercise": 60,
+      "mental_stimulation": 70,
+      "affection": 70,
+      "environment": 60,
+      "recreation": 60
+    },
+    "neg_tick_rates": {
+      "hunger": -1.5,
+      "thirst": -1.5,
+      "energy": -2,
+      "hygiene": -1,
+      "happiness": -1,
+      "exercise": -0.5,
+      "mental_stimulation": -1.5,
+      "affection": -1.5,
+      "environment": -1.5,
+      "recreation": -1
+    },
+    "pos_tick_rates": {
+      "hunger": 0.4,
+      "thirst": 0.4,
+      "energy": 0.6,
+      "hygiene": 0.8,
+      "happiness": 0.7,
+      "exercise": 0.5,
+      "mental_stimulation": 0.5,
+      "affection": 1.0,
+      "environment": 0.6,
+      "recreation": 0.5
+    }
+  },
+  "mischievous": {
+    "stats": {
+      "hunger": 60,
+      "thirst": 60,
+      "energy": 70,
+      "hygiene": 60,
+      "happiness": 70,
+      "exercise": 70,
+      "mental_stimulation": 70,
+      "affection": 50,
+      "environment": 70,
+      "recreation": 70
+    },
+    "neg_tick_rates": {
+      "hunger": -1.5,
+      "thirst": -1.5,
+      "energy": -2,
+      "hygiene": -1,
+      "happiness": -1,
+      "exercise": -1,
+      "mental_stimulation": -1.5,
+      "affection": -1,
+      "environment": -1.5,
+      "recreation": -1
+    },
+    "pos_tick_rates": {
+      "hunger": 0.4,
+      "thirst": 0.4,
+      "energy": 0.5,
+      "hygiene": 0.7,
+      "happiness": 0.6,
+      "exercise": 0.5,
+      "mental_stimulation": 0.9,
+      "affection": 0.4,
+      "environment": 1.0,
+      "recreation": 0.6
+    }
+  }
+}

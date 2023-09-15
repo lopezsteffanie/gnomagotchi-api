@@ -30,7 +30,7 @@ def create_app(test_config=None):
         raise ValueError(f"Invalid JSON in FIREBASE_SERVICE_ACCOUNT_KEY: {str(e)}") from e
 
     # Enable CORS for all routes
-    CORS(app, resources={r"*": {"origins": "http://127.0.0.1:5000"}})
+    CORS(app)
 
     # Register Blueprints here
     from .routes.auth_routes import auth_bp

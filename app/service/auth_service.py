@@ -20,7 +20,7 @@ class AuthService:
 
       return user.uid, None
     
-    except firebase_admin.auth.AuthError as e:
+    except auth.AuthError as e:
       return None, str(e)
     
   @staticmethod
@@ -31,5 +31,5 @@ class AuthService:
 
       return user.uid, None
     
-    except firebase_admin.auth.AuthError as e:
+    except auth.AuthError as e:
       return None, str(e)

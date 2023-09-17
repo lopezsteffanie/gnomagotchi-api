@@ -75,3 +75,18 @@ def logout():
     return handle_response({"message": "User is not logged in"}, 401);
   except Exception as e:
     return handle_response({"error": str(e)}, 500)
+
+@auth_bp.route("/forgot-password", methods=["POST"])
+def forgot_password():
+  """
+  Route for user forgot password.
+  """
+  try:
+    email = request.json.get("email")
+
+    if error := AuthService.forgot_password(email):
+      return handle_response({"error": error}, 400)
+
+    return handle_response({"message": "Password reset email sent successfully"}, 200)
+  except Exception as e:
+    return handle_response({"error": str(e)}, 400)

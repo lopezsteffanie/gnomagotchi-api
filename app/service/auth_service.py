@@ -1,6 +1,7 @@
 import firebase_admin
 from firebase_admin import auth
 from ..db import db
+from .custom_email_service import send_custom_email
 
 class AuthService:
   @staticmethod
@@ -33,3 +34,14 @@ class AuthService:
     
     except Exception as e:
       return None, str(e)
+    
+  @staticmethod
+  def forgot_password(email):
+    try:
+      # Send password reset email
+      reset_link = auth.generate_password_reset_link(email)
+      send_custom_email(email, reset_link)
+      return None
+    
+    except Exception as e:
+      return str(e)

@@ -1,22 +1,13 @@
-from ..db import db
 import random
 import os
 import json
+import jwt
 
 class GnomeService:
   @staticmethod
-  def is_user_in_session(session):
-    return "user_uid" in session
-  
-  @staticmethod
-  def create_gnome(session, db):  # sourcery skip: raise-specific-error
-    if not GnomeService.is_user_in_session(session):
-      raise Exception("User is not logged in")
-    
+  def create_gnome(user_uid, db):
     color = GnomeService.generate_random_color()
     personality = GnomeService.generate_random_personality()
-
-    user_uid = session["user_uid"]
 
     gnome_ref = db.collection("gnomes").add({
         "color": color,
@@ -34,7 +25,7 @@ class GnomeService:
 
     user_ref.update({"gnome_ids": gnome_ids})
 
-    return gnome_id
+    return gnome_id, color, personality
   
   @staticmethod
   def generate_random_color():
@@ -42,32 +33,22 @@ class GnomeService:
     return random.choice(colors)
   
   @staticmethod
-  def generate_random_personality():  # sourcery skip: raise-from-previous-error, raise-specific-error
-    # Construct the path to personalities.json
+  def generate_random_personality():
     json_file_path = os.path.join('app', 'personalities.json')
-    # Load personality data from the JSON file
     with open(json_file_path, 'r') as json_file:
       try:
         personality_data = json.load(json_file)
       except json.JSONDecodeError as e:
         raise Exception(f"Error decoding JSON: {str(e)}")
       
-    # Get a list of personality profiles
     personality_profiles = list(personality_data.keys())
-
-    # Randomly select a personality profile
     selected_profile = random.choice(personality_profiles)
 
-    # Return both the name of the personality and its stats
     return {"name": selected_profile, "stats": personality_data[selected_profile]}
   
   @staticmethod
-  def name_gnome(gnome_id, gnome_name, session, db):
-    # sourcery skip: raise-specific-error
-    if not GnomeService.is_user_in_session(session):
-      raise Exception("User is not logged in")
-    
-    user_uid = session["user_uid"]
+  def name_gnome(gnome_id, gnome_name, db):
+    user_uid = GnomeService.get_user_id_from_jwt(jwt_token)
 
     gnome_ref = db.collection("gnomes").document(gnome_id)
     gnome_data = gnome_ref.get().to_dict()
@@ -85,13 +66,7 @@ class GnomeService:
     })
 
   @staticmethod
-  def get_current_user_gnome_id(session, db):
-    # sourcery skip: raise-specific-error
-    if not GnomeService.is_user_in_session(session):
-      raise Exception("User is not logged in")
-
-    user_uid = session["user_uid"]
-
+  def get_current_user_gnome_id(db, user_uid):
     user_ref = db.collection("users").document(user_uid)
     user_data = user_ref.get().to_dict()
 
@@ -101,13 +76,7 @@ class GnomeService:
       raise Exception("No gnomes associated with the current user")
     
   @staticmethod
-  def update_gnome_age(gnome_id, new_age, session, db):
-    # sourcery skip: raise-specific-error
-    if not GnomeService.is_user_in_session(session):
-      raise Exception("User is not logged in")
-    
-    user_uid = session["user_uid"]
-
+  def update_gnome_age(gnome_id, new_age, db, user_uid):
     gnome_ref = db.collection("gnomes").document(gnome_id)
     gnome_data = gnome_ref.get().to_dict()
 
@@ -118,4 +87,17 @@ class GnomeService:
       raise Exception("Gnome does not belong to the current user")
     
     gnome_ref.update({"age": new_age})
-      
+
+  @staticmethod
+  def verify_jwt_token(token):
+    try:
+      # Verify and decode the JWT token
+      payload = jwt.decode(token, os.environ.get("FLASK_SECRET_KEY"), algorithms=['HS256'])
+
+      user_uid = payload['uid']
+
+      return user_uid, None
+    except jwt.ExpiredSignatureError:
+      return None, "Token has expired"
+    except jwt.InvalidTokenError:
+      return None, "Invalid token"

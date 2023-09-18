@@ -1,5 +1,10 @@
 from flask import Blueprint, jsonify, request, session
 from ..service.auth_service import AuthService
+import os
+import datetime
+import jwt
+
+SECRET_KEY = os.environ.get("FLASK_SECRET_KEY")
 
 auth_bp = Blueprint("auth", __name__, url_prefix="/api/auth")
 
@@ -52,10 +57,10 @@ def login():
     if error:
       return handle_response({"error": error}, 401)
 
-    # Store user UID in the session upon successful login
-    session["user_uid"] = uid
+    # Generate a JWT token
+    jwt_token = generate_jwt_token(uid)
 
-    return handle_response({"message": "User logged in successfully", "uid": uid}, 200)
+    return handle_response({"message": "User logged in successfully", "uid": uid, "token": jwt_token}, 200)
   except Exception as e:
     return handle_response({"error": str(e)}, 401)
   
@@ -65,14 +70,19 @@ def logout():
   Route for user logout.
   """
   try:
-    # Check if the user is logged in (UID is in the session)
-    if "user_uid" in session:
-      # Clear the user's session data upon logout
-      session.pop("user_uid")
+    # Get the JWT token from the request headers
+    token = request.headers.get('Authorization')
 
+    if not token:
+      return handle_response({"error": "User is not logged in"}, 401)
+    try:
+      # Verify and decode the JWT token
+      payload =jwt.decode(token, SECRET_KEY, algorithms=['HS256'])
       return handle_response({"message": "User logged out successfully"}, 200)
-    
-    return handle_response({"message": "User is not logged in"}, 401);
+    except jwt.ExpiredSignatureError:
+      return handle_response({"error": "Token has expired"}, 401)
+    except jwt.InvalidTokenError:
+      return handle_response({"error": "Invalid token"}, 401)
   except Exception as e:
     return handle_response({"error": str(e)}, 500)
 
@@ -90,3 +100,11 @@ def forgot_password():
     return handle_response({"message": "Password reset email sent successfully"}, 200)
   except Exception as e:
     return handle_response({"error": str(e)}, 400)
+  
+def generate_jwt_token(user_uid):
+  payload = {
+      'uid': user_uid,
+      'exp': datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=1),
+  }
+
+  return jwt.encode(payload, SECRET_KEY, algorithm='HS256')

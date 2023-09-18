@@ -1,7 +1,7 @@
-import firebase_admin
 from firebase_admin import auth
 from ..db import db
 from .custom_email_service import send_custom_email
+import jwt
 
 class AuthService:
   @staticmethod

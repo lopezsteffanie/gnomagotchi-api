@@ -47,9 +47,7 @@ class GnomeService:
     return {"name": selected_profile, "stats": personality_data[selected_profile]}
   
   @staticmethod
-  def name_gnome(gnome_id, gnome_name, db):
-    user_uid = GnomeService.get_user_id_from_jwt(jwt_token)
-
+  def name_gnome(gnome_id, gnome_name, db, user_uid):
     gnome_ref = db.collection("gnomes").document(gnome_id)
     gnome_data = gnome_ref.get().to_dict()
 

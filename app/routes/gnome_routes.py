@@ -55,14 +55,14 @@ def get_current_user_gnome_id():
     try:
       # Get the JWT token from the request headers
       token = request.headers.get('Authorization')
- 
+
       # Verify the JWT token and get the user UID
       user_uid, token_error = GnomeService.verify_jwt_token(token)
 
       if token_error:
         return handle_response({"error": token_error}, 401)
       
-      gnome_id = GnomeService.get_current_user_gnome_id(db)
+      gnome_id = GnomeService.get_current_user_gnome_id(db, user_uid)
 
       return handle_response({"gnome_id": gnome_id}, 200)
     except Exception as e:
@@ -82,7 +82,7 @@ def update_gnome_age(gnome_id):
       return handle_response({"error": token_error}, 401)
     
     new_age = request.json.get("age")
-    GnomeService.update_gnome_age(gnome_id, new_age, db)
+    GnomeService.update_gnome_age(gnome_id, new_age, db, user_uid)
 
     return handle_response({"messsage": "Gnome age updated successfully"}, 200)
   except Exception as e:

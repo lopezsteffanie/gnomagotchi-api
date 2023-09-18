@@ -76,6 +76,19 @@ class GnomeService:
       raise Exception("No gnomes associated with the current user")
     
   @staticmethod
+  def get_gnome(gnome_id, db, user_uid):
+    gnome_ref = db.collection("gnomes").document(gnome_id)
+    gnome_data = gnome_ref.get().to_dict()
+
+    if not gnome_data:
+      raise Exception("Gnome not found")
+    
+    if gnome_data["user_uid"] != user_uid:
+      raise Exception("Gnome does not belong to the current user")
+    
+    return gnome_data
+    
+  @staticmethod
   def update_gnome_age(gnome_id, new_age, db, user_uid):
     gnome_ref = db.collection("gnomes").document(gnome_id)
     gnome_data = gnome_ref.get().to_dict()

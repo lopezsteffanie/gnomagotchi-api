@@ -50,7 +50,6 @@ def name_gnome(gnome_id):
       return handle_response({"error": str(e)}, 400)
 
 @gnome_bp.route("/get-current-user-gnome-id", methods=["GET"])
-# @verify_jwt_token_required
 def get_current_user_gnome_id():
     try:
       # Get the JWT token from the request headers
@@ -68,8 +67,25 @@ def get_current_user_gnome_id():
     except Exception as e:
       return handle_response({"error": str(e)}, 400)
     
+@gnome_bp.route("/get-gnome/<gnome_id>", methods=["GET"])
+def get_gnome(gnome_id):
+  try:
+    # Get the JWT token from the request headers
+    token = request.headers.get('Authorization')
+
+    # Verify the JWT token and get the user UID
+    user_uid, token_error = GnomeService.verify_jwt_token(token)
+
+    if token_error:
+      return handle_response({"error": token_error}, 401)
+    
+    gnome = GnomeService.get_gnome(gnome_id, db, user_uid)
+
+    return handle_response({"gnome": gnome}, 200)
+  except Exception as e:
+    return handle_response({"error": str(e)}, 400)
+    
 @gnome_bp.route("/update-age/<gnome_id>", methods=["POST"])
-# @verify_jwt_token_required
 def update_gnome_age(gnome_id):
   try:
     # Get the JWT token from the request headers
